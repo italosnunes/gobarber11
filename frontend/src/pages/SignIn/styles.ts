@@ -14,7 +14,7 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   place-content: center;
-  
+
   width: 100%;
   max-width: 700px;
 `;
@@ -44,7 +44,7 @@ export const AnimationContainer = styled.div`
   place-content: center;
 
   animation: ${appearFromLeft} 1s;
-  
+
   form {
     margin: 80px 0;
     width: 340px;
