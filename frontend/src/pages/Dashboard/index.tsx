@@ -1,14 +1,26 @@
-import React from 'react';
-import { FiPower } from 'react-icons/fi';
-
-import { Container, Header, HeaderContent, Profile } from './styles';
+import React, { useState } from 'react';
+import { FiPower, FiClock } from 'react-icons/fi';
 
 import logoImg from '../../assets/logo.svg';
 import defaultImg from '../../assets/placeholder-avatar.jpg';
 import { useAuth } from '../../hooks/auth';
 
+import {
+    Container,
+    Header,
+    HeaderContent,
+    Profile,
+    Content,
+    Schedule,
+    Calendar,
+    NextAppointment,
+    Section,
+    Appointment
+} from './styles';
 const Dashboard: React.FC = () => {
+
     const { signOut, user } = useAuth();
+    const [selectedDate,setSelectedDate] = useState(new Date())
     return (
         <Container>
             <Header>
@@ -31,6 +43,56 @@ const Dashboard: React.FC = () => {
                     </button>
                 </HeaderContent>
             </Header>
+            <Content>
+                <Schedule>
+                    <h1>Horários agendados</h1>
+                    <p>
+                        <span>Hoje</span>
+                        <span>Dia 06</span>
+                        <span>Segunda-Feira</span>
+                    </p>
+
+                    <NextAppointment>
+                        <strong>Atendimento a seguir</strong>
+
+                        <div>
+                            <img src="" alt=""/>
+                            <strong>ItaloNunes</strong>
+                            <span>
+                                <FiClock/>
+                                08:00
+                            </span>
+                        </div>
+                    </NextAppointment>
+                    <Section>
+                        <strong>Manhã</strong>
+                        <Appointment>
+                            <span>
+                                <FiClock/>
+                                08:00
+                            </span>
+                            <div>
+                                <img src="" alt=""/>
+                                <strong>Italo Nunes</strong>
+                            </div>
+                        </Appointment>
+                    </Section>
+                    <Section>
+                        <strong>Tarde</strong>
+                        <Appointment>
+                            <span>
+                                <FiClock/>
+                                08:00
+                            </span>
+                            <div>
+                                <img src="" alt=""/>
+                                <strong>Italo Nunes</strong>
+                            </div>
+                        </Appointment>
+                    </Section>
+                </Schedule>
+                <Calendar/>
+            </Content>
         </Container>
     );
 };
